@@ -1,2 +1,3 @@
 ﻿# Airbicycle
-https://app.diagrams.net/#Hseongun1%2FAirbicycle%2Fmain%2F%EC%A0%9C%EB%AA%A9%20%EC%97%86%EB%8A%94%20%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8.drawio#%7B%22pageId%22%3A%22FCz4SXdJHhQecE2kZBdf%22%7D
+
+![airbicycle drawio](https://github.com/user-attachments/assets/66af01fc-5101-4835-8c29-be65f65a9464)
