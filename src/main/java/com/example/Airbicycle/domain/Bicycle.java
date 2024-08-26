@@ -15,8 +15,8 @@ public class Bicycle {
     @Column(name = "bicycle_id")
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userId;
+    @JoinColumn(name = "username",referencedColumnName = "username")
+    private User username;
     @OneToOne
     @JoinColumn(name = "payment_id")
     private Payment paymentId;
