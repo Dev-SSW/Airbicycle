@@ -3,6 +3,7 @@ package com.example.Airbicycle.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.geo.Point;
 
 import java.sql.Timestamp;
 
@@ -12,25 +13,17 @@ import java.sql.Timestamp;
 @Table(name = "Bicycle")
 public class Bicycle {
     @Id@GeneratedValue
-    @Column(name = "bicycle_id")
+    @Column(name = "bicycle_id",nullable = false)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "username",referencedColumnName = "username")
-    private User username;
     @OneToOne
-    @JoinColumn(name = "payment_id")
+    @JoinColumn(name = "payment_id",nullable = false)
     private Payment paymentId;
 
-    private Long price;
-    private Timestamp usingTime;
-    private Timestamp startTime;
-    private Timestamp endTime;
-
-    private Timestamp extensions; // 연장시간
-    private Boolean available; // 사용여부  True -> 사용가능
-
-    
-
-
+    private String bicycleModel;
+    private int price;
+    private int pricePerHour;
+    private String location;
+    private boolean available; //사용가능 / 불가능 여부
+    private int year; // 연식
 
 }

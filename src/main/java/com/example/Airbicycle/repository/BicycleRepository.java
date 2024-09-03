@@ -12,15 +12,9 @@ import java.util.List;
 @Repository
 public interface BicycleRepository extends JpaRepository<Bicycle,Long> {
 
-    // ID로 자전거 찾기
-    Optional<Bicycle> findById(String bicycleId);
+    List<Bicycle> findByStatus(boolean status);
+    List<Bicycle> findByLocation(String location);
+    List<Bicycle> findByStatusAndLocation(boolean status, String location);
 
-    // 특정 유저가 대여한 자전거 조회 (현재 대여중인 자전거만)
-    Optional<Bicycle> findByUsernameAndAvailable(String username,Boolean available);
 
-    // 사용 가능한 자전거 조회(리스트)
-   List<Bicycle> findByAvailable(Boolean available);
-
-    //특정 유저가 대여한 자전거 리스트 조회
-    List<Bicycle> findAllByUsername(String username);
 }
