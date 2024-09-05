@@ -15,7 +15,8 @@ public class User implements UserDetails {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-    private String username;
+    @Column(unique = true)
+    private String username; // 아이디
     private String password;
     private String name;
     private String email;
@@ -24,6 +25,8 @@ public class User implements UserDetails {
     private String nickname;
     @Enumerated(EnumType.STRING)
     private Role role;
+    // 현재 자전거 빌림 여부  false -> 안빌림 /  true -> 빌림
+    private boolean hasRented = false;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -46,4 +49,7 @@ public class User implements UserDetails {
         return true;
     }
 
+    public boolean gethasRented() {
+        return this.hasRented;
+    }
 }
