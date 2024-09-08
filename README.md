@@ -1,3 +1,3 @@
 ﻿# Airbicycle
 
-![airbicycle drawio](https://github.com/user-attachments/assets/66af01fc-5101-4835-8c29-be65f65a9464)
+![image](https://github.com/user-attachments/assets/7b4aadb4-eb66-42f5-81c7-35730e40ae50)
