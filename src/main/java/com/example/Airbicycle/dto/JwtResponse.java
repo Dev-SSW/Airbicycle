@@ -1,11 +1,9 @@
 package com.example.Airbicycle.dto;
-
 import com.example.Airbicycle.domain.Role;
 import com.example.Airbicycle.domain.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)

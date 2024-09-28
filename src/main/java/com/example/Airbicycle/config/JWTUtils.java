@@ -23,10 +23,9 @@ public class JWTUtils {
     @Value("${spring.jwt.secret}")
     private String secretString;
 
-    @PostConstruct
+    @PostConstruct //HmacSHA256
     public void init() {
-        byte[] keyBytes = secretString.getBytes(StandardCharsets.UTF_8);
-        this.key = new SecretKeySpec(keyBytes, "HmacSHA256");
+        this.key = new SecretKeySpec(secretString.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
     }
 
     public String generateToken(UserDetails userDetails) {
