@@ -1,7 +1,6 @@
 package com.example.Airbicycle.config.OAuth2;
 
 import com.example.Airbicycle.config.OAuth2dto.GoogleResponse;
-import com.example.Airbicycle.config.OAuth2dto.KakaoResponse;
 import com.example.Airbicycle.config.OAuth2dto.NaverResponse;
 import com.example.Airbicycle.config.OAuth2dto.OAuth2Response;
 import com.example.Airbicycle.domain.Role;
@@ -16,7 +15,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -62,7 +60,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             users.setUsername(username);
             users.setName(oAuth2Response.getName());
             users.setEmail(oAuth2Response.getEmail());
-            users.setProfileImage(oAuth2Response.getProfileImage());
+            //users.setProfileImage(oAuth2Response.getProfileImage());
             users.setRole(Role.ROLE_USER);
             userRepository.save(users);
 
@@ -75,7 +73,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             users.setUsername(username);
             users.setName(existData.getName());
             users.setEmail(existData.getEmail());
-            users.setProfileImage(existData.getProfileImage());
+            //users.setProfileImage(existData.getProfileImage());
             users.setRole(existData.getRole());
 
             // 추가된 로그: 기존 사용자 정보 출력

@@ -51,9 +51,6 @@ public class User implements UserDetails, OAuth2User {
         return true;
     }
 
-    //OAuth2
-    private String profileImage; //프로필 이미지(OAuth2)
-
     @Transient  // JPA가 이 필드를 데이터베이스에 매핑하지 않도록 설정
     private Map<String, Object> attributes; //OAuth2 속성
 
