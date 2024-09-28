@@ -1,6 +1,7 @@
 package com.example.Airbicycle.service;
 
 import com.example.Airbicycle.config.JWTUtils;
+import com.example.Airbicycle.config.exception.UsernameAlreadyExistsException;
 import com.example.Airbicycle.domain.User;
 import com.example.Airbicycle.dto.JwtRequest;
 import com.example.Airbicycle.dto.JwtResponse;
@@ -12,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import project.airbicycle.config.exception.UsernameAlreadyExistsException;
 import java.util.HashMap;
 
 @Service
@@ -120,5 +120,24 @@ public class AuthService {
             response.setError(e.getMessage());
         }
         return response;
+    }
+
+    // OAuth2 로그인 사용자를 위한 JWT 생성 로직
+    public JwtResponse handleOAuth2Login(User user) {
+        JwtResponse resp = new JwtResponse();
+        try {
+            // OAuth2 로그인 사용자를 위한 JWT 생성
+            String accessToken = jwtUtils.generateToken(user);
+            String refreshToken = jwtUtils.generateRefreshToken(new HashMap<>(), user);
+            resp.setToken(accessToken);
+            resp.setRefreshToken(refreshToken);
+            resp.setStatusCode(200);
+            resp.setMessage("OAuth2 로그인 성공");
+            resp.setExpirationTime("24Hr");
+        } catch (Exception e) {
+            resp.setStatusCode(500);
+            resp.setError(e.getMessage());
+        }
+        return resp;
     }
 }

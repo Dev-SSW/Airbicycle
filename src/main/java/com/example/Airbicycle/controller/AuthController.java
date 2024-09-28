@@ -30,10 +30,10 @@ public class AuthController {
     public ResponseEntity<JwtResponse> refreshToken(@RequestBody JwtRequest refreshTokenRequest){
         return ResponseEntity.ok(authService.refreshToken(refreshTokenRequest));
     }
-
     @PostMapping("/validate")
     public ResponseEntity<JwtResponse> validateToken(@RequestBody JwtRequest validateTokenRequest){
         return ResponseEntity.ok(authService.validateToken(validateTokenRequest));
     }
+
 
 }

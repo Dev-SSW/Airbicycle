@@ -1,5 +1,5 @@
 package com.example.Airbicycle.domain;
 
 public enum Role {
-    USER, ADMIN
+    ROLE_GUEST, ROLE_USER
 }
