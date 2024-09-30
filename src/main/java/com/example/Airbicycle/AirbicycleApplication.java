@@ -11,6 +11,7 @@ public class AirbicycleApplication {
 		Dotenv dotenv = Dotenv.configure().load();
 		// 환경 변수에 값을 설정
 		System.setProperty("JWT_SECRET", dotenv.get("JWT_SECRET"));
+		System.setProperty("DB_URL", dotenv.get("DB_URL"));
 		System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
 		System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 		System.setProperty("GOOGLE_CLIENT_ID", dotenv.get("GOOGLE_CLIENT_ID"));

@@ -32,7 +32,6 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     private final UserRepository userRepository;
     //http://localhost:8080/oauth2/authorization/google
     //http://localhost:8080/oauth2/authorization/naver
-    //http://localhost:8080/oauth2/authorization/kakao
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
