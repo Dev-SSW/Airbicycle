@@ -5,6 +5,7 @@ import com.example.Airbicycle.dto.JwtResponse;
 import com.example.Airbicycle.dto.SigninRequest;
 import com.example.Airbicycle.dto.SignupRequest;
 import com.example.Airbicycle.service.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
+    @Operation(summary = "회원가입", description = "Request를 받고 회원가입을 진행함")
     public ResponseEntity<JwtResponse> signUp(@RequestBody SignupRequest signUpRequest){
         return ResponseEntity.ok(authService.signUp(signUpRequest));
     }
