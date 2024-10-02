@@ -35,8 +35,8 @@ public class RentalService {
             throw new IllegalStateException("자전거를 빌리기에 적합하지 않습니다(정보가 없거나 누군가 사용중입니다.");
         }
         Rental rental = new Rental();
-        rental.setUserId(user.get());
-        rental.setBicycleId(bicycle.get());
+        rental.setUser(user.get());
+        rental.setBicycle(bicycle.get());
         rental.setStartTime(startTime);
         rental.setEndTime(endTime);
 
@@ -54,7 +54,7 @@ public class RentalService {
             throw new IllegalStateException("대여 이력을 찾을 수 없습니다.");
         }
         Rental exsistigRental = rental.get();
-        Bicycle bicycle = exsistigRental.getBicycleId();
+        Bicycle bicycle = exsistigRental.getBicycle();
         bicycle.setAvailable(true);
         bicycleRepository.save(bicycle);
 

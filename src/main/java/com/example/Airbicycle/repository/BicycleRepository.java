@@ -11,10 +11,4 @@ import java.util.List;
 
 @Repository
 public interface BicycleRepository extends JpaRepository<Bicycle,Long> {
-
-    List<Bicycle> findByStatus(boolean status);
-    List<Bicycle> findByLocation(String location);
-    List<Bicycle> findByStatusAndLocation(boolean status, String location);
-
-
 }

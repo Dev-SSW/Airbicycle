@@ -7,18 +7,19 @@ import org.springframework.data.geo.Point;
 
 import java.sql.Timestamp;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Entity
 @Getter
 @Setter
 @Table(name = "Bicycle")
 public class Bicycle {
-    @Id@GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bicycle_id",nullable = false)
     private Long id;
-    @OneToOne
+    @OneToOne(fetch = LAZY)
     @JoinColumn(name = "payment_id",nullable = false)
-    private Payment paymentId;
-
+    private Payment payment;
     private String bicycleModel;
     private int price;
     private int pricePerHour;

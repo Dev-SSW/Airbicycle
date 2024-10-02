@@ -18,7 +18,6 @@ public class User implements UserDetails, OAuth2User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
     @Column(unique = true)
     private String username; // 아이디
     private String password;
@@ -31,6 +30,8 @@ public class User implements UserDetails, OAuth2User {
     private Role role;
     // 현재 자전거 빌림 여부  false -> 안빌림 /  true -> 빌림
     private boolean hasRented = false;
+    @Transient  // JPA가 이 필드를 데이터베이스에 매핑하지 않도록 설정
+    private Map<String, Object> attributes; //OAuth2 속성
 
     public boolean gethasRented() {
         return this.hasRented;
@@ -41,7 +42,6 @@ public class User implements UserDetails, OAuth2User {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -59,20 +59,15 @@ public class User implements UserDetails, OAuth2User {
         return true;
     }
 
-    @Transient  // JPA가 이 필드를 데이터베이스에 매핑하지 않도록 설정
-    private Map<String, Object> attributes; //OAuth2 속성
-
     // OAuth2User 인터페이스의 메서드 구현
     @Override
     public Map<String, Object> getAttributes() {
         return attributes;
     }
-
     @Override
     public String getName() {
         return name;
     }
-
     @Override
     public String getUsername() {
         return username;

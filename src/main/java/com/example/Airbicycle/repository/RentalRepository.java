@@ -10,8 +10,4 @@ public interface RentalRepository extends JpaRepository<Rental,Long> {
     List<Rental> findByUserId(Long userId);
     // 특정 자전거의 대여 기록
     List<Rental> findByBicycleId(Long BicycleId);
-    // 현재 대여 중인 자전거
-    List<Rental> findByBicycleIdAndEndTimeIsNull(Long bicycleId);
-
-    // 현재 대여중이지 않은 자전거(빌
 }

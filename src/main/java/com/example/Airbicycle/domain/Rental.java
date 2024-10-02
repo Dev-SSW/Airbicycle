@@ -7,19 +7,21 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 
-@Data
+import static jakarta.persistence.FetchType.LAZY;
+
+@Entity
 @Getter @Setter
 @Table(name = "Rental")
 public class Rental {
-    @Id@GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rental_id")
-    private Long Id;
-    @ManyToOne
+    private Long id;
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private User userId;
-    @ManyToOne
-    @JoinColumn(name = "Bicycle_id")
-    private Bicycle bicycleId;
+    private User user;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "bicycle_id")
+    private Bicycle bicycle;
 
     private Timestamp startTime;
     private Timestamp endTime;
